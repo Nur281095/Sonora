@@ -1,0 +1,463 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F338DA32A7896730030FA2D /* digital7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F338DA22A7896730030FA2D /* digital7.ttf */; };
+		1F338DA62A789BD70030FA2D /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 1F338DA52A789BD60030FA2D /* DS-DIGI.TTF */; };
+		1F6733AB2A737BC000536A4D /* digital-7 (mono italic).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F6733AA2A737BC000536A4D /* digital-7 (mono italic).ttf */; };
+		1F6F23F92A3BFD8D004D44F6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F23E72A3BFD8D004D44F6 /* UIViewExtension.swift */; };
+		1F6F23FA2A3BFD8D004D44F6 /* CommonAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F23E82A3BFD8D004D44F6 /* CommonAlertVC.swift */; };
+		1F6F23FB2A3BFD8D004D44F6 /* CommonAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6F23E92A3BFD8D004D44F6 /* CommonAlertVC.xib */; };
+		1F6F23FC2A3BFD8D004D44F6 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F23EA2A3BFD8D004D44F6 /* ExtensionUIViewController.swift */; };
+		1F857AF62AE5FF7500478FAC /* ShowCues7Manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1F857AF52AE5FF7500478FAC /* ShowCues7Manual.pdf */; };
+		1F9FE3D524F73D7F005E1B24 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FE3D224F73D7F005E1B24 /* FirstViewController.swift */; };
+		1F9FE3D624F73D7F005E1B24 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FE3D324F73D7F005E1B24 /* SettingsViewController.swift */; };
+		1F9FE3E924F741A1005E1B24 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9FE3E624F740C8005E1B24 /* MediaPlayer.framework */; };
+		1F9FE3EA24F741B5005E1B24 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9FE3E724F740C8005E1B24 /* AVFoundation.framework */; };
+		1FADD25124F4A57500CE9E1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FADD25024F4A57500CE9E1F /* Assets.xcassets */; };
+		1FADD2A524F4A88000CE9E1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FADD2A424F4A88000CE9E1F /* LaunchScreen.storyboard */; };
+		1FF548252564818A000F0FC8 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF548242564818A000F0FC8 /* InstructionViewController.swift */; };
+		72B0136C1A94F9BB00C6C882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B0136B1A94F9BB00C6C882 /* AppDelegate.swift */; };
+		72B0138C1A94F9F600C6C882 /* Sonora.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B0138B1A94F9F600C6C882 /* Sonora.swift */; };
+		72B0138E1A94FA0900C6C882 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72B0138D1A94FA0900C6C882 /* Main.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1F338DA22A7896730030FA2D /* digital7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = digital7.ttf; sourceTree = "<group>"; };
+		1F338DA52A789BD60030FA2D /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
+		1F6733AA2A737BC000536A4D /* digital-7 (mono italic).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7 (mono italic).ttf"; sourceTree = "<group>"; };
+		1F6F23E72A3BFD8D004D44F6 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		1F6F23E82A3BFD8D004D44F6 /* CommonAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonAlertVC.swift; sourceTree = "<group>"; };
+		1F6F23E92A3BFD8D004D44F6 /* CommonAlertVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonAlertVC.xib; sourceTree = "<group>"; };
+		1F6F23EA2A3BFD8D004D44F6 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
+		1F7FCA9324F763860097FB62 /* UIButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonHelper.swift; sourceTree = "<group>"; };
+		1F7FCA9424F763860097FB62 /* NSLayoutHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutHelper.swift; sourceTree = "<group>"; };
+		1F7FCA9524F763860097FB62 /* DeviceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceHelper.swift; sourceTree = "<group>"; };
+		1F7FCA9624F763860097FB62 /* UITextViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewHelper.swift; sourceTree = "<group>"; };
+		1F7FCA9724F763860097FB62 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		1F7FCA9824F763860097FB62 /* CommonAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAlertVC.swift; sourceTree = "<group>"; };
+		1F7FCA9924F763860097FB62 /* CommonAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonAlertVC.xib; sourceTree = "<group>"; };
+		1F7FCA9A24F763860097FB62 /* UILabelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelHelper.swift; sourceTree = "<group>"; };
+		1F7FCA9B24F763860097FB62 /* UITextFieldHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldHelper.swift; sourceTree = "<group>"; };
+		1F7FCA9C24F763860097FB62 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
+		1F857AF52AE5FF7500478FAC /* ShowCues7Manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ShowCues7Manual.pdf; sourceTree = "<group>"; };
+		1F9FE3D224F73D7F005E1B24 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		1F9FE3D324F73D7F005E1B24 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1F9FE3E624F740C8005E1B24 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		1F9FE3E724F740C8005E1B24 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1FADD25024F4A57500CE9E1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1FADD2A424F4A88000CE9E1F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1FF548242564818A000F0FC8 /* InstructionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
+		1FFBC81625BCBE4000B92542 /* Show Cues.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Show Cues.entitlements"; sourceTree = "<group>"; };
+		72B013661A94F9BB00C6C882 /* Test New Show Cues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test New Show Cues.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		72B0136A1A94F9BB00C6C882 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72B0136B1A94F9BB00C6C882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		72B0138B1A94F9F600C6C882 /* Sonora.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sonora.swift; sourceTree = "<group>"; };
+		72B0138D1A94FA0900C6C882 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		72B013631A94F9BB00C6C882 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F9FE3E924F741A1005E1B24 /* MediaPlayer.framework in Frameworks */,
+				1F9FE3EA24F741B5005E1B24 /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F338DA42A7898FB0030FA2D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1F338DA22A7896730030FA2D /* digital7.ttf */,
+				1F6733AA2A737BC000536A4D /* digital-7 (mono italic).ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1F7FCA9224F763860097FB62 /* LlayoutHelper */ = {
+			isa = PBXGroup;
+			children = (
+				1F7FCA9324F763860097FB62 /* UIButtonHelper.swift */,
+				1F7FCA9424F763860097FB62 /* NSLayoutHelper.swift */,
+				1F7FCA9524F763860097FB62 /* DeviceHelper.swift */,
+				1F7FCA9624F763860097FB62 /* UITextViewHelper.swift */,
+				1F7FCA9724F763860097FB62 /* UIViewExtension.swift */,
+				1F7FCA9824F763860097FB62 /* CommonAlertVC.swift */,
+				1F7FCA9924F763860097FB62 /* CommonAlertVC.xib */,
+				1F7FCA9A24F763860097FB62 /* UILabelHelper.swift */,
+				1F7FCA9B24F763860097FB62 /* UITextFieldHelper.swift */,
+				1F7FCA9C24F763860097FB62 /* ExtensionUIViewController.swift */,
+			);
+			path = LlayoutHelper;
+			sourceTree = "<group>";
+		};
+		1F9FE3E824F741A1005E1B24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		72B0135D1A94F9BB00C6C882 = {
+			isa = PBXGroup;
+			children = (
+				1F338DA42A7898FB0030FA2D /* Fonts */,
+				1F7FCA9224F763860097FB62 /* LlayoutHelper */,
+				72B013681A94F9BB00C6C882 /* Sonora */,
+				72B013671A94F9BB00C6C882 /* Products */,
+				1F9FE3E824F741A1005E1B24 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		72B013671A94F9BB00C6C882 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72B013661A94F9BB00C6C882 /* Test New Show Cues.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		72B013681A94F9BB00C6C882 /* Sonora */ = {
+			isa = PBXGroup;
+			children = (
+				1FFBC81625BCBE4000B92542 /* Show Cues.entitlements */,
+				1F6F23E72A3BFD8D004D44F6 /* UIViewExtension.swift */,
+				1F6F23E82A3BFD8D004D44F6 /* CommonAlertVC.swift */,
+				1F6F23E92A3BFD8D004D44F6 /* CommonAlertVC.xib */,
+				1F6F23EA2A3BFD8D004D44F6 /* ExtensionUIViewController.swift */,
+				72B0136B1A94F9BB00C6C882 /* AppDelegate.swift */,
+				72B0138D1A94FA0900C6C882 /* Main.storyboard */,
+				72B0138B1A94F9F600C6C882 /* Sonora.swift */,
+				1F9FE3D224F73D7F005E1B24 /* FirstViewController.swift */,
+				1F9FE3D324F73D7F005E1B24 /* SettingsViewController.swift */,
+				1FF548242564818A000F0FC8 /* InstructionViewController.swift */,
+				1F857AF52AE5FF7500478FAC /* ShowCues7Manual.pdf */,
+				1FADD25024F4A57500CE9E1F /* Assets.xcassets */,
+				1FADD2A424F4A88000CE9E1F /* LaunchScreen.storyboard */,
+				72B292AE1BB060A5004B7AEF /* Frameworks */,
+				72B013691A94F9BB00C6C882 /* Supporting Files */,
+			);
+			path = Sonora;
+			sourceTree = "<group>";
+		};
+		72B013691A94F9BB00C6C882 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F338DA52A789BD60030FA2D /* DS-DIGI.TTF */,
+				72B0136A1A94F9BB00C6C882 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		72B292AE1BB060A5004B7AEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F9FE3E624F740C8005E1B24 /* MediaPlayer.framework */,
+				1F9FE3E724F740C8005E1B24 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		72B013651A94F9BB00C6C882 /* Sonora */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72B013851A94F9BB00C6C882 /* Build configuration list for PBXNativeTarget "Sonora" */;
+			buildPhases = (
+				72B013621A94F9BB00C6C882 /* Sources */,
+				72B013631A94F9BB00C6C882 /* Frameworks */,
+				72B013641A94F9BB00C6C882 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sonora;
+			packageProductDependencies = (
+			);
+			productName = Sonora;
+			productReference = 72B013661A94F9BB00C6C882 /* Test New Show Cues.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		72B0135E1A94F9BB00C6C882 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 1500;
+				ORGANIZATIONNAME = "Carl R Andrews, Inc.";
+				TargetAttributes = {
+					72B013651A94F9BB00C6C882 = {
+						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 1150;
+					};
+				};
+			};
+			buildConfigurationList = 72B013611A94F9BB00C6C882 /* Build configuration list for PBXProject "Sonora" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 72B0135D1A94F9BB00C6C882;
+			packageReferences = (
+			);
+			productRefGroup = 72B013671A94F9BB00C6C882 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				72B013651A94F9BB00C6C882 /* Sonora */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		72B013641A94F9BB00C6C882 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F857AF62AE5FF7500478FAC /* ShowCues7Manual.pdf in Resources */,
+				1F6733AB2A737BC000536A4D /* digital-7 (mono italic).ttf in Resources */,
+				1F338DA62A789BD70030FA2D /* DS-DIGI.TTF in Resources */,
+				1F338DA32A7896730030FA2D /* digital7.ttf in Resources */,
+				1FADD25124F4A57500CE9E1F /* Assets.xcassets in Resources */,
+				1FADD2A524F4A88000CE9E1F /* LaunchScreen.storyboard in Resources */,
+				1F6F23FB2A3BFD8D004D44F6 /* CommonAlertVC.xib in Resources */,
+				72B0138E1A94FA0900C6C882 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		72B013621A94F9BB00C6C882 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72B0138C1A94F9F600C6C882 /* Sonora.swift in Sources */,
+				72B0136C1A94F9BB00C6C882 /* AppDelegate.swift in Sources */,
+				1F9FE3D624F73D7F005E1B24 /* SettingsViewController.swift in Sources */,
+				1F6F23FC2A3BFD8D004D44F6 /* ExtensionUIViewController.swift in Sources */,
+				1F6F23F92A3BFD8D004D44F6 /* UIViewExtension.swift in Sources */,
+				1FF548252564818A000F0FC8 /* InstructionViewController.swift in Sources */,
+				1F6F23FA2A3BFD8D004D44F6 /* CommonAlertVC.swift in Sources */,
+				1F9FE3D524F73D7F005E1B24 /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		72B013831A94F9BB00C6C882 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		72B013841A94F9BB00C6C882 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		72B013861A94F9BB00C6C882 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Sonora/Show Cues.entitlements";
+				CURRENT_PROJECT_VERSION = 22;
+				DEVELOPMENT_TEAM = 54SS95PQY2;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sonora",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Sonora/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Beta;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mojosoftwareonline.beta;
+				PRODUCT_NAME = "Test New Show Cues";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		72B013871A94F9BB00C6C882 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 22;
+				DEVELOPMENT_TEAM = 54SS95PQY2;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Sonora",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Sonora/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Beta;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 7.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mojosoftwareonline.beta;
+				PRODUCT_NAME = "Test New Show Cues";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		72B013611A94F9BB00C6C882 /* Build configuration list for PBXProject "Sonora" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72B013831A94F9BB00C6C882 /* Debug */,
+				72B013841A94F9BB00C6C882 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72B013851A94F9BB00C6C882 /* Build configuration list for PBXNativeTarget "Sonora" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72B013861A94F9BB00C6C882 /* Debug */,
+				72B013871A94F9BB00C6C882 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 72B0135E1A94F9BB00C6C882 /* Project object */;
+}
