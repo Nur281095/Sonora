@@ -18,54 +18,6 @@ import MessageUI
 import Foundation
 import SwiftUI
 
-
-extension UIView {
-    func fadeTransition(_ duration:CFTimeInterval) {
-        let animation = CATransition()
-        animation.timingFunction = CAMediaTimingFunction(name:
-                                                            CAMediaTimingFunctionName.easeInEaseOut)
-        animation.type = CATransitionType.fade
-        animation.duration = duration
-        layer.add(animation, forKey: CATransitionType.fade.rawValue)
-    }
-}
-
-extension TimeInterval {
-    var time:String {
-        return String(format:"%02dd %02dh %02dm %02ds", Int((self/86400)), Int((self/3600.0)), Int((self/60.0)), Int((self)))
-    }
-}
-
-extension Array where Element: Hashable {
-    func removingDuplicates() -> [Element] {
-        var addedDict = [Element: Bool]()
-        
-        return filter {
-            addedDict.updateValue(true, forKey: $0) == nil
-        }
-    }
-    mutating func removeDuplicates() {
-        self = self.removingDuplicates()
-    }
-}
-
-extension UILabel {
-    func setSizeFont (sizeFont: Double) {
-        self.font =  UIFont(name: self.font.fontName, size: CGFloat(sizeFont))!
-        self.sizeToFit()
-    }
-}
-
-extension MPVolumeView {
-    static func setVolume(_ volume: Float) {
-        let volumeView = MPVolumeView()
-        let slider2 = volumeView.subviews.first(where: { $0 is UISlider }) as? UISlider
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
-            slider2?.value = volume
-        }
-    }
-}
-
 // MARK: - GLOBAL VARIABLES -----------------------------------------------------
 
 typealias Completion = (() -> Void)
@@ -80,7 +32,7 @@ var seconds: Int = 0
 var minutes: Int = 0
 var addMultiplier: Int = 60
 var countdownStart2: UILabel?
-var myVolume:Float?
+var myVolume: Float?
 var nowPlaying = " "
 var musicPlayer:MPMusicPlayerController?
 var songsCollection:MPMediaItemCollection?
@@ -165,11 +117,9 @@ class LocalAudioData : NSObject,NSCoding {
     }
 }
 
-class MusicPlayerVC: UIViewController,
-                     MPMediaPickerControllerDelegate,
-                     AVAudioPlayerDelegate
-{
+class MusicPlayerVC: UIViewController, MPMediaPickerControllerDelegate, AVAudioPlayerDelegate {
     
+    @IBOutlet weak var mediaCollectionView: UICollectionView!
     @IBOutlet var previousButton: UIButton!
     @IBOutlet var nextButton: UIButton!
     @IBOutlet weak var volumeSlider: UISlider!
@@ -187,7 +137,7 @@ class MusicPlayerVC: UIViewController,
     @IBOutlet var myClockCountdown: UILabel!
     @IBOutlet var batteryImage: UIImageView!
     @IBOutlet var timeRemaining2: UILabel!
-    
+    @IBOutlet var resetCountdownTimer: UIButton!
    // @IBOutlet var delay: UISwitch!
 
     //Track Settings
@@ -207,11 +157,172 @@ class MusicPlayerVC: UIViewController,
     var currentSongNumber: Int = 0
     var startTrackFormated: Int = 0
     var startTrackLabel: Int = 0
-    
-    @IBOutlet var resetCountdownTimer: UIButton!
+    var volumeObserver: VolumeChangeObserver?
+    let cellPercentWidth: CGFloat = 0.7
+    var current_song_index = 0
     
     override var prefersStatusBarHidden : Bool {
         return true
+    }
+    
+    // MARK: - VIEW DID LOAD
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //try to recive remote control
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: [])
+        try! AVAudioSession.sharedInstance().setActive(true)
+        
+        self.becomeFirstResponder()
+        
+        mediaPickerDone = false
+        songsSelected = false
+        defaults.set(songsSelected, forKey: "songsSelected")
+        
+        spinner.style = .large
+        spinner.color = .yellow
+        spinner.transform = CGAffineTransform.init(scaleX: 2, y: 2)
+        
+        // keep device from sleeping
+        UIApplication.shared.isIdleTimerDisabled = true
+        
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        mediaCollectionView.decelerationRate = UIScrollView.DecelerationRate.fast
+        (mediaCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout)?.itemSize = CGSize(
+            width: view.bounds.width * cellPercentWidth,
+            height: view.bounds.height * cellPercentWidth * cellPercentWidth
+        )
+        (mediaCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout)?.minimumLineSpacing = 15
+        
+        //        let level = UIDevice.current.batteryLevel
+//        let battery_Level = Int(level * 100)
+//        print("battery level ", battery_Level)
+
+//        NotificationCenter.default.addObserver(self, selector: #selector(batteryLevelDidChange), name: UIDevice.batteryLevelDidChangeNotification, object: nil)
+        
+        //show volume slider
+//        var wrapperView = UIView(frame: CGRectMake(30, 200, 260, 20))
+//        self.view.backgroundColor = UIColor.clear
+//        self.view.addSubview(wrapperView)
+//        var volumeView = MPVolumeView(frame: wrapperView.bounds)
+//        wrapperView.addSubview(volumeView)
+        
+        timeRemainingLabel?.adjustsFontSizeToFitWidth = true
+        timeRemainingLabel?.textColor = .yellow
+        
+        timeRemaining2?.adjustsFontSizeToFitWidth = true
+        timeRemaining2?.textColor = .yellow
+        
+        songTitleLabel.font = songTitleLabel.font.withSize(80)
+        songTitleLabel.adjustsFontSizeToFitWidth = true
+        
+        //clock
+        myClock.adjustsFontSizeToFitWidth = true
+        myClock.backgroundColor = UIColor.clear
+        
+        myClockCountdown.adjustsFontSizeToFitWidth = true
+        myClockCountdown.backgroundColor = UIColor.clear
+        
+        if UIDevice.current.userInterfaceIdiom == .pad{
+            songTitleLabel.font = songTitleLabel.font.withSize(140)
+        }
+        configUI()
+    }
+    // MARK: - VIEW WILL APPEAR
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.becomeFirstResponder()
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        
+        setupCommandCenter()
+        
+        volumeSlider.value = defaults.float (forKey: "masterVolumeSlider")
+        myVolume = defaults.float(forKey: "masterVolume")
+        MPVolumeView.setVolume(myVolume!)
+        print ("my volume will appear ", myVolume!)
+        print ("my volume will appear slider value ", volumeSlider.value)
+        
+        delayTimeLabel.alpha = 0
+        cueSheetTextViewText.alpha = 0
+        songTitleLabel.alpha = 0
+        
+        //get device size iPhone or iPad
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            //print("running on iPhone")
+            iPhoneDevice = true
+        }else{
+            iPhoneDevice = false
+        }
+        
+        //check if countdown switch is ON
+        showcountdownSwitch =
+        defaults.bool(forKey: "showcountdownSwitch")
+        if showcountdownSwitch == true {
+            myClockCountdown.alpha = 1
+            myClock.alpha = 0
+        }else{
+            myClockCountdown.alpha = 0
+            myClock.alpha = 1
+        }
+        
+        cueSheetSwitch = defaults.bool(forKey: "cueSheetSwitch")
+        if cueSheetSwitch == true{
+            songTitleLabel.alpha = 0
+            cueSheetTextViewText.alpha = 1
+        }else{
+            UIView.animate(withDuration: 0.5,
+                           delay: 0.1,
+                           options: .curveEaseIn,
+                           animations: { [weak self] in
+                self?.songTitleLabel.alpha = 1
+            }, completion: nil)
+        }
+        
+        currentTimeTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(getCurrentTime), userInfo: nil, repeats: true)
+        
+        playPauseOutlet.setBackgroundImage(UIImage(systemName:
+                                                    "play.fill")!, for: .normal)
+        playPauseOutlet.tintColor = .yellow
+        songTitleLabel.textColor = .yellow
+        
+        myClockCountdown?.setValue(UIColor.yellow, forKeyPath: "textColor")
+        
+        masterVolume = defaults.float(forKey: "masterVolume")
+        
+        showLengthLabelSetup()
+        initializeMusicPlayer()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        self.timerRunning = false
+        self.countdownTimer.invalidate()
+        countdownTimer.invalidate()
+        timerRunning = false
+        showcountdownSwitch = false
+        songTimer .invalidate()
+        currentTimeTimer .invalidate()
+        batteryStatusTimer .invalidate()
+        delayTimer.invalidate()
+        // stopTimer()
+        showcountdownSwitch = false
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        getOrientation()
+    }
+    
+    deinit {
+        volumeObserver = nil
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    private func configUI() {
+        volumeObserver = VolumeChangeObserver()
+        volumeObserver?.delegate = self
     }
     
     private func setupVolumeListener()
@@ -458,77 +569,6 @@ class MusicPlayerVC: UIViewController,
         }
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-        //print("remove Observer")
-    }
-    
-    // MARK: - VIEW WILL APPEAR
-    override func viewWillAppear(_ animated: Bool) {
-        
-        self.becomeFirstResponder()
-        UIApplication.shared.beginReceivingRemoteControlEvents()
-        
-        setupCommandCenter()
-        
-        volumeSlider.value = defaults.float (forKey: "masterVolumeSlider")
-        myVolume = defaults.float(forKey: "masterVolume")
-        MPVolumeView.setVolume(myVolume!)
-        print ("my volume will appear ", myVolume!)
-        print ("my volume will appear slider value ", volumeSlider.value)
-        
-        delayTimeLabel.alpha = 0
-        cueSheetTextViewText.alpha = 0
-        songTitleLabel.alpha = 0
-        
-        //get device size iPhone or iPad
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            //print("running on iPhone")
-            iPhoneDevice = true
-        }else{
-            iPhoneDevice = false
-        }
-        
-        //check if countdown switch is ON
-        showcountdownSwitch =
-        defaults.bool(forKey: "showcountdownSwitch")
-        if showcountdownSwitch == true {
-            myClockCountdown.alpha = 1
-            myClock.alpha = 0
-        }else{
-            myClockCountdown.alpha = 0
-            myClock.alpha = 1
-        }
-        
-        cueSheetSwitch = defaults.bool(forKey: "cueSheetSwitch")
-        if cueSheetSwitch == true{
-            songTitleLabel.alpha = 0
-            cueSheetTextViewText.alpha = 1
-        }else{
-            UIView.animate(withDuration: 0.5,
-                           delay: 0.1,
-                           options: .curveEaseIn,
-                           animations: { [weak self] in
-                self?.songTitleLabel.alpha = 1
-            }, completion: nil)
-        }
-        
-        currentTimeTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(getCurrentTime), userInfo: nil, repeats: true)
-        
-        playPauseOutlet.setBackgroundImage(UIImage(systemName:
-                                                    "play.fill")!, for: .normal)
-        playPauseOutlet.tintColor = .yellow
-        songTitleLabel.textColor = .yellow
-        
-        myClockCountdown?.setValue(UIColor.yellow, forKeyPath: "textColor")
-        
-        masterVolume = defaults.float(forKey: "masterVolume")
-        
-        showLengthLabelSetup()
-        initializeMusicPlayer()
-    }
-    
-    
     func showLengthLabelSetup(){
         currentTime = Double(defaults.float(forKey: "showLengthLabel"))
         let multi = 60
@@ -667,69 +707,6 @@ class MusicPlayerVC: UIViewController,
             musicPlayer!.skipToNextItem()
 //        }
         setupPlaylist()
-    }
-    
-    
-    // MARK: - VIEW DID LOAD
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //try to recive remote control
-        try! AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, options: [])
-        try! AVAudioSession.sharedInstance().setActive(true)
-        
-        self.becomeFirstResponder()
-        
-        mediaPickerDone = false
-        songsSelected = false
-        defaults.set(songsSelected, forKey: "songsSelected")
-        
-        spinner.style = .large
-        spinner.color = .yellow
-        spinner.transform = CGAffineTransform.init(scaleX: 2, y: 2)
-        
-        // keep device from sleeping
-        UIApplication.shared.isIdleTimerDisabled = true
-        
-        UIDevice.current.isBatteryMonitoringEnabled = true
-        
-//        let level = UIDevice.current.batteryLevel
-//        let battery_Level = Int(level * 100)
-//        print("battery level ", battery_Level)
-
-//        NotificationCenter.default.addObserver(self, selector: #selector(batteryLevelDidChange), name: UIDevice.batteryLevelDidChangeNotification, object: nil)
-        
-        //show volume slider
-//        var wrapperView = UIView(frame: CGRectMake(30, 200, 260, 20))
-//        self.view.backgroundColor = UIColor.clear
-//        self.view.addSubview(wrapperView)
-//        var volumeView = MPVolumeView(frame: wrapperView.bounds)
-//        wrapperView.addSubview(volumeView)
-        
-        timeRemainingLabel?.adjustsFontSizeToFitWidth = true
-        timeRemainingLabel?.textColor = .yellow
-        
-        timeRemaining2?.adjustsFontSizeToFitWidth = true
-        timeRemaining2?.textColor = .yellow
-        
-        songTitleLabel.font = songTitleLabel.font.withSize(80)
-        songTitleLabel.adjustsFontSizeToFitWidth = true
-        
-        //clock
-        myClock.adjustsFontSizeToFitWidth = true
-        myClock.backgroundColor = UIColor.clear
-        
-        myClockCountdown.adjustsFontSizeToFitWidth = true
-        myClockCountdown.backgroundColor = UIColor.clear
-        
-        songTitleLabel.adjustsFontSizeToFitWidth = true
-        
-        if UIDevice.current.userInterfaceIdiom == .pad{
-            songTitleLabel.font = songTitleLabel.font.withSize(140)
-        }
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        getOrientation()
     }
     
     // MARK: - GET CURRENT TIME AND BATTERY LEVEL
@@ -1043,7 +1020,7 @@ class MusicPlayerVC: UIViewController,
         
         // MARK: - PLAY/PAUSE SWITCH ON
         let playPauseSwitch = defaults.bool(forKey: "playPauseSwitch")
-        if playPauseSwitch == true{
+        if playPauseSwitch {
             
             if musicPlayer!.playbackState == MPMusicPlaybackState.playing {
                 
@@ -1288,8 +1265,7 @@ class MusicPlayerVC: UIViewController,
         }
     }
     
-    func afterFadeOut()
-    {
+    func afterFadeOut(){
 //        noFadeSwitch = false //stop play all in settings after fadeout
 //        defaults.set(noFadeSwitch, forKey: "noFadeSwitch")
 //        loop1 = false
@@ -1320,24 +1296,51 @@ class MusicPlayerVC: UIViewController,
         songTitleLabel.textColor = .green
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+}
+
+//MARK: - VolumeChangeDelegate
+    
+extension MusicPlayerVC: VolumeChangeDelegate {
+    func volumeDidChange(newVolume: Float) {
+        print("newVolume is ==> \(newVolume)")
+        defaults.set(newVolume, forKey: "masterVolumeSlider")
+        defaults.set("\(newVolume)", forKey: "masterVolumeLabel")
+        defaults.set(newVolume, forKey: "masterVolume")
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        
-        self.timerRunning = false
-        self.countdownTimer.invalidate()
-        countdownTimer.invalidate()
-        timerRunning = false
-        showcountdownSwitch = false
-        songTimer .invalidate()
-        currentTimeTimer .invalidate()
-        batteryStatusTimer .invalidate()
-        delayTimer.invalidate()
-        // stopTimer()
-        showcountdownSwitch = false
-    }
+    
 }
 
 
+extension MusicPlayerVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Selected Cell #\(indexPath.row)")
+    }
+}
+
+extension MusicPlayerVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 6
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MediaCollectionCell.self)
+        cell.songTitleLbl.text = "Cell #\(indexPath.row)"
+        return cell
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if let layout = mediaCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout {
+            current_song_index = layout.currentCenteredPage ?? 0
+            print("Current centered index: \(String(describing: layout.currentCenteredPage ?? 0))")
+        }
+    }
+
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        if let layout = mediaCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout {
+            current_song_index = layout.currentCenteredPage ?? 0
+            print("Current centered index: \(String(describing: layout.currentCenteredPage ?? 0))")
+        }
+    }
+}

@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		018061E32B611AC800695854 /* VolumeChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018061E22B611AC800695854 /* VolumeChangeObserver.swift */; };
+		018061E62B611AF500695854 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018061E52B611AF500695854 /* Extensions.swift */; };
+		01AB1B132B61320B00F3C2E5 /* CenteredCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AB1B122B61320B00F3C2E5 /* CenteredCollectionViewFlowLayout.swift */; };
+		01AB1B162B61326E00F3C2E5 /* MediaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AB1B152B61326E00F3C2E5 /* MediaCollectionCell.swift */; };
+		0CB354C4CBE904F7F2A9AA63 /* Pods_Sonora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA2B5D6514592AB400B8E94 /* Pods_Sonora.framework */; };
 		1F338DA32A7896730030FA2D /* digital7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F338DA22A7896730030FA2D /* digital7.ttf */; };
 		1F338DA62A789BD70030FA2D /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 1F338DA52A789BD60030FA2D /* DS-DIGI.TTF */; };
 		1F6733AB2A737BC000536A4D /* digital-7 (mono italic).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F6733AA2A737BC000536A4D /* digital-7 (mono italic).ttf */; };
-		1F6F23F92A3BFD8D004D44F6 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F23E72A3BFD8D004D44F6 /* UIViewExtension.swift */; };
 		1F6F23FA2A3BFD8D004D44F6 /* CommonAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F23E82A3BFD8D004D44F6 /* CommonAlertVC.swift */; };
 		1F6F23FB2A3BFD8D004D44F6 /* CommonAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6F23E92A3BFD8D004D44F6 /* CommonAlertVC.xib */; };
-		1F6F23FC2A3BFD8D004D44F6 /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F23EA2A3BFD8D004D44F6 /* ExtensionUIViewController.swift */; };
 		1F857AF62AE5FF7500478FAC /* ShowCues7Manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 1F857AF52AE5FF7500478FAC /* ShowCues7Manual.pdf */; };
 		1F9FE3D524F73D7F005E1B24 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FE3D224F73D7F005E1B24 /* FirstViewController.swift */; };
 		1F9FE3D624F73D7F005E1B24 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9FE3D324F73D7F005E1B24 /* SettingsViewController.swift */; };
@@ -28,13 +31,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		018061E22B611AC800695854 /* VolumeChangeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeChangeObserver.swift; sourceTree = "<group>"; };
+		018061E52B611AF500695854 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		01AB1B122B61320B00F3C2E5 /* CenteredCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteredCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		01AB1B152B61326E00F3C2E5 /* MediaCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionCell.swift; sourceTree = "<group>"; };
 		1F338DA22A7896730030FA2D /* digital7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = digital7.ttf; sourceTree = "<group>"; };
 		1F338DA52A789BD60030FA2D /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
 		1F6733AA2A737BC000536A4D /* digital-7 (mono italic).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7 (mono italic).ttf"; sourceTree = "<group>"; };
-		1F6F23E72A3BFD8D004D44F6 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		1F6F23E82A3BFD8D004D44F6 /* CommonAlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonAlertVC.swift; sourceTree = "<group>"; };
 		1F6F23E92A3BFD8D004D44F6 /* CommonAlertVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonAlertVC.xib; sourceTree = "<group>"; };
-		1F6F23EA2A3BFD8D004D44F6 /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		1F7FCA9324F763860097FB62 /* UIButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonHelper.swift; sourceTree = "<group>"; };
 		1F7FCA9424F763860097FB62 /* NSLayoutHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutHelper.swift; sourceTree = "<group>"; };
 		1F7FCA9524F763860097FB62 /* DeviceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceHelper.swift; sourceTree = "<group>"; };
@@ -59,6 +64,9 @@
 		72B0136B1A94F9BB00C6C882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72B0138B1A94F9F600C6C882 /* Sonora.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sonora.swift; sourceTree = "<group>"; };
 		72B0138D1A94FA0900C6C882 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7BA2B5D6514592AB400B8E94 /* Pods_Sonora.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sonora.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		943513014EA5279F9F047D83 /* Pods-Sonora.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sonora.release.xcconfig"; path = "Target Support Files/Pods-Sonora/Pods-Sonora.release.xcconfig"; sourceTree = "<group>"; };
+		F8F15BA45EBD51384C40F078 /* Pods-Sonora.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sonora.debug.xcconfig"; path = "Target Support Files/Pods-Sonora/Pods-Sonora.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,12 +76,101 @@
 			files = (
 				1F9FE3E924F741A1005E1B24 /* MediaPlayer.framework in Frameworks */,
 				1F9FE3EA24F741B5005E1B24 /* AVFoundation.framework in Frameworks */,
+				0CB354C4CBE904F7F2A9AA63 /* Pods_Sonora.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		018061E12B611ABC00695854 /* VolumeChangeObserver */ = {
+			isa = PBXGroup;
+			children = (
+				018061E22B611AC800695854 /* VolumeChangeObserver.swift */,
+			);
+			path = VolumeChangeObserver;
+			sourceTree = "<group>";
+		};
+		018061E42B611AEA00695854 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				018061E52B611AF500695854 /* Extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		01AB1B0C2B6121CA00F3C2E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1F6F23E82A3BFD8D004D44F6 /* CommonAlertVC.swift */,
+				1F6F23E92A3BFD8D004D44F6 /* CommonAlertVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01AB1B0D2B6121E000F3C2E5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				72B0136B1A94F9BB00C6C882 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		01AB1B0E2B61222400F3C2E5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				72B0138D1A94FA0900C6C882 /* Main.storyboard */,
+				1F857AF52AE5FF7500478FAC /* ShowCues7Manual.pdf */,
+				1FADD25024F4A57500CE9E1F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		01AB1B0F2B61228400F3C2E5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				01AB1B142B61325100F3C2E5 /* MediaPlayer */,
+				1F9FE3D224F73D7F005E1B24 /* FirstViewController.swift */,
+				1F9FE3D324F73D7F005E1B24 /* SettingsViewController.swift */,
+				1FF548242564818A000F0FC8 /* InstructionViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		01AB1B102B6131F900F3C2E5 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				01AB1B112B61320300F3C2E5 /* CenteredCollectionView */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		01AB1B112B61320300F3C2E5 /* CenteredCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				01AB1B122B61320B00F3C2E5 /* CenteredCollectionViewFlowLayout.swift */,
+			);
+			name = CenteredCollectionView;
+			sourceTree = "<group>";
+		};
+		01AB1B142B61325100F3C2E5 /* MediaPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				72B0138B1A94F9F600C6C882 /* Sonora.swift */,
+				01AB1B152B61326E00F3C2E5 /* MediaCollectionCell.swift */,
+			);
+			path = MediaPlayer;
+			sourceTree = "<group>";
+		};
+		17FEC4CCA8A25BAB919D116D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F8F15BA45EBD51384C40F078 /* Pods-Sonora.debug.xcconfig */,
+				943513014EA5279F9F047D83 /* Pods-Sonora.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		1F338DA42A7898FB0030FA2D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +200,7 @@
 		1F9FE3E824F741A1005E1B24 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BA2B5D6514592AB400B8E94 /* Pods_Sonora.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,6 +213,7 @@
 				72B013681A94F9BB00C6C882 /* Sonora */,
 				72B013671A94F9BB00C6C882 /* Products */,
 				1F9FE3E824F741A1005E1B24 /* Frameworks */,
+				17FEC4CCA8A25BAB919D116D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,19 +228,14 @@
 		72B013681A94F9BB00C6C882 /* Sonora */ = {
 			isa = PBXGroup;
 			children = (
+				01AB1B102B6131F900F3C2E5 /* Lib */,
+				01AB1B0D2B6121E000F3C2E5 /* App */,
 				1FFBC81625BCBE4000B92542 /* Show Cues.entitlements */,
-				1F6F23E72A3BFD8D004D44F6 /* UIViewExtension.swift */,
-				1F6F23E82A3BFD8D004D44F6 /* CommonAlertVC.swift */,
-				1F6F23E92A3BFD8D004D44F6 /* CommonAlertVC.xib */,
-				1F6F23EA2A3BFD8D004D44F6 /* ExtensionUIViewController.swift */,
-				72B0136B1A94F9BB00C6C882 /* AppDelegate.swift */,
-				72B0138D1A94FA0900C6C882 /* Main.storyboard */,
-				72B0138B1A94F9F600C6C882 /* Sonora.swift */,
-				1F9FE3D224F73D7F005E1B24 /* FirstViewController.swift */,
-				1F9FE3D324F73D7F005E1B24 /* SettingsViewController.swift */,
-				1FF548242564818A000F0FC8 /* InstructionViewController.swift */,
-				1F857AF52AE5FF7500478FAC /* ShowCues7Manual.pdf */,
-				1FADD25024F4A57500CE9E1F /* Assets.xcassets */,
+				018061E42B611AEA00695854 /* Extension */,
+				018061E12B611ABC00695854 /* VolumeChangeObserver */,
+				01AB1B0C2B6121CA00F3C2E5 /* View */,
+				01AB1B0F2B61228400F3C2E5 /* Controllers */,
+				01AB1B0E2B61222400F3C2E5 /* Resources */,
 				1FADD2A424F4A88000CE9E1F /* LaunchScreen.storyboard */,
 				72B292AE1BB060A5004B7AEF /* Frameworks */,
 				72B013691A94F9BB00C6C882 /* Supporting Files */,
@@ -175,17 +269,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72B013851A94F9BB00C6C882 /* Build configuration list for PBXNativeTarget "Sonora" */;
 			buildPhases = (
+				08A91B9E86922A5F1752E583 /* [CP] Check Pods Manifest.lock */,
 				72B013621A94F9BB00C6C882 /* Sources */,
 				72B013631A94F9BB00C6C882 /* Frameworks */,
 				72B013641A94F9BB00C6C882 /* Resources */,
+				E5F83EFCCD142B6A152A6F98 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Sonora;
-			packageProductDependencies = (
-			);
 			productName = Sonora;
 			productReference = 72B013661A94F9BB00C6C882 /* Test New Show Cues.app */;
 			productType = "com.apple.product-type.application";
@@ -217,8 +311,6 @@
 				Base,
 			);
 			mainGroup = 72B0135D1A94F9BB00C6C882;
-			packageReferences = (
-			);
 			productRefGroup = 72B013671A94F9BB00C6C882 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -246,18 +338,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		08A91B9E86922A5F1752E583 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sonora-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5F83EFCCD142B6A152A6F98 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sonora/Pods-Sonora-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sonora/Pods-Sonora-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		72B013621A94F9BB00C6C882 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				72B0138C1A94F9F600C6C882 /* Sonora.swift in Sources */,
+				018061E32B611AC800695854 /* VolumeChangeObserver.swift in Sources */,
 				72B0136C1A94F9BB00C6C882 /* AppDelegate.swift in Sources */,
 				1F9FE3D624F73D7F005E1B24 /* SettingsViewController.swift in Sources */,
-				1F6F23FC2A3BFD8D004D44F6 /* ExtensionUIViewController.swift in Sources */,
-				1F6F23F92A3BFD8D004D44F6 /* UIViewExtension.swift in Sources */,
+				018061E62B611AF500695854 /* Extensions.swift in Sources */,
 				1FF548252564818A000F0FC8 /* InstructionViewController.swift in Sources */,
+				01AB1B162B61326E00F3C2E5 /* MediaCollectionCell.swift in Sources */,
 				1F6F23FA2A3BFD8D004D44F6 /* CommonAlertVC.swift in Sources */,
+				01AB1B132B61320B00F3C2E5 /* CenteredCollectionViewFlowLayout.swift in Sources */,
 				1F9FE3D524F73D7F005E1B24 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,12 +512,14 @@
 		};
 		72B013861A94F9BB00C6C882 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8F15BA45EBD51384C40F078 /* Pods-Sonora.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Sonora/Show Cues.entitlements";
 				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 54SS95PQY2;
 				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Sonora",
@@ -407,11 +546,13 @@
 		};
 		72B013871A94F9BB00C6C882 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 943513014EA5279F9F047D83 /* Pods-Sonora.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 54SS95PQY2;
 				ENABLE_BITCODE = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Sonora",

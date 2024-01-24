@@ -47,32 +47,6 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
     @IBOutlet var startTrackNumber: UIView!
     @IBOutlet var startTrackLabel: UILabel!
     
-    @IBAction func startTrackNumber(_ sender: UISlider) {
-            sender.setValue(sender.value.rounded(.down), animated: true)
-            startTrackLabel.text = "\(Int(sender.value))"
-            defaults.set(startTrackLabel.text, forKey: "showTrackLabel")
-        print("start track label", startTrackLabel.text!)
-    }
-    
-    @IBAction func showLengthSlider(_ sender: UISlider) {
-            sender.setValue(sender.value.rounded(.down), animated: true)
-            showLengthLabel.text = "\(Int(sender.value))"
-            defaults.set(showLengthLabel.text, forKey: "showLengthLabel")
-    }
-    
-    @IBAction func masterVolumeSlider(_ sender: UISlider) {
-        sender.setValue(sender.value.rounded(.down), animated: true)
-        masterVolumeLabel.text = "\(masterVolumeSlider.value / 10)"
-        masterVolume = Float(masterVolumeLabel.text!)!
-        
-        defaults.set(masterVolumeSlider.value, forKey: "masterVolumeSlider")
-        defaults.set(masterVolumeLabel.text, forKey: "masterVolumeLabel")
-        defaults.set(masterVolume, forKey: "masterVolume")
-
-        print ("settings saved master volume ", masterVolume)
-    }
-    
-    
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -87,9 +61,6 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         showcountdownSwitch.isOn = defaults.bool(forKey:"showcountdownSwitch")
         showLengthLabel.text = defaults.string(forKey:"showLengthLabel")
         startTrackLabel.text = defaults.string(forKey:"showTrackLabel")
-        masterVolumeSlider.value = defaults.float(forKey: "masterVolumeSlider")
-        masterVolumeLabel.text = defaults.string(forKey: "masterVolumeLabel")
-        masterVolume = defaults.float(forKey: "masterVolume")
         
         //using AppStorage to save data with a default value if nothing yet saved
         //https://www.hackingwithswift.com/books/ios-swiftui/storing-user-settings-with-userdefaults
@@ -119,6 +90,18 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         
         loadFadeSwitch()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        masterVolumeSlider.value = defaults.float(forKey: "masterVolumeSlider") * 10
+        masterVolumeLabel.text = defaults.string(forKey: "masterVolumeLabel")
+        masterVolume = defaults.float(forKey: "masterVolume")
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
     
     func loadFadeSwitch() {
         //load saved fade duration
@@ -139,9 +122,7 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self)
-    }
+    
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         view.tintColor = UIColor.clear
@@ -164,6 +145,31 @@ class SettingsViewController: UITableViewController, MFMailComposeViewController
         }
         defaults.set(clockFormat24Switch.isOn, forKey: "clockFormat24Switch")
         defaults.set(showcountdownSwitch.isOn, forKey: "showcountdownSwitch")
+    }
+    
+    @IBAction func startTrackNumber(_ sender: UISlider) {
+            sender.setValue(sender.value.rounded(.down), animated: true)
+            startTrackLabel.text = "\(Int(sender.value))"
+            defaults.set(startTrackLabel.text, forKey: "showTrackLabel")
+        print("start track label", startTrackLabel.text!)
+    }
+    
+    @IBAction func showLengthSlider(_ sender: UISlider) {
+            sender.setValue(sender.value.rounded(.down), animated: true)
+            showLengthLabel.text = "\(Int(sender.value))"
+            defaults.set(showLengthLabel.text, forKey: "showLengthLabel")
+    }
+    
+    @IBAction func masterVolumeSlider(_ sender: UISlider) {
+        sender.setValue(sender.value.rounded(.down), animated: true)
+        masterVolumeLabel.text = "\(masterVolumeSlider.value / 10)"
+        masterVolume = Float(masterVolumeLabel.text!)!
+        
+        defaults.set(masterVolumeSlider.value, forKey: "masterVolumeSlider")
+        defaults.set(masterVolumeLabel.text, forKey: "masterVolumeLabel")
+        defaults.set(masterVolume, forKey: "masterVolume")
+
+        print ("settings saved master volume ", masterVolume)
     }
     
     @IBAction func fadeDurationChanged(_ sender: Any) {
