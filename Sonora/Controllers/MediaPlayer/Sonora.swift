@@ -206,6 +206,7 @@ class MusicPlayerVC: UIViewController, MPMediaPickerControllerDelegate, AVAudioP
 //        var volumeView = MPVolumeView(frame: wrapperView.bounds)
 //        wrapperView.addSubview(volumeView)
         
+        
         timeRemainingLabel?.adjustsFontSizeToFitWidth = true
         timeRemainingLabel?.textColor = .yellow
         
@@ -226,6 +227,13 @@ class MusicPlayerVC: UIViewController, MPMediaPickerControllerDelegate, AVAudioP
             songTitleLabel.font = songTitleLabel.font.withSize(140)
         }
         configUI()
+        
+        if let retrievedMediaItemCollection = MediaItemManager.shared.getMediaItemCollection() {
+            // Use the retrievedMediaItemCollection as needed
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.setupSavedMediaItemCollection(with: retrievedMediaItemCollection)
+            }
+        }
     }
     // MARK: - VIEW WILL APPEAR
     override func viewWillAppear(_ animated: Bool) {
@@ -844,6 +852,58 @@ class MusicPlayerVC: UIViewController, MPMediaPickerControllerDelegate, AVAudioP
         }
     }
     
+    // MARK: - SPINNER ANIMATION
+    func createSpinnerView() {
+        
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+        view.addSubview(spinner)
+        
+        spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        // wait two seconds to simulate loading
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            // then remove the spinner view controller
+            spinner.removeFromSuperview()
+            self.mediaPickerDone = false
+        }
+    }
+    
+    func setupSavedMediaItemCollection(with collection: MPMediaItemCollection) {
+        mediaPickerDone = true
+        songTitleLabel.text = ""
+        songTitleLabel.alpha = 0
+        
+        createSpinnerView()
+        
+        musicPlayer!.shuffleMode = MPMusicShuffleMode.off
+        
+        //clean out previous playlist array
+        myArray.removeAll()
+        //save empty playlist to start new Playlist
+        if collection.items.count > 0 {
+            
+            musicPlayer!.setQueue(with: collection)
+            // Empty the arrays of songs
+            songsCollection = nil
+            musicPlayer!.shuffleMode = MPMusicShuffleMode.off
+            songsCollection = collection as MPMediaItemCollection
+            songs = songsCollection!.items as NSArray
+            
+            //so playlist view will fill tableview
+            songsSelected = true
+            defaults.set(songsSelected, forKey: "songsSelected")
+            
+            defaults.set(collection.items.count, forKey: "mediaItems")
+            
+            dismiss(animated: true, completion: nil)
+            timeRemaining2.alpha = 0
+            timeRemainingLabel!.alpha = 0
+            loadingDone = true
+            perform(#selector(setupPlayer), with: nil, afterDelay: 0.1)
+        }
+    }
     
     // MARK: - OPEN PLAYLIST BUTTON
     @IBAction func openPlaylistButt(_ sender: AnyObject) {
@@ -872,56 +932,11 @@ class MusicPlayerVC: UIViewController, MPMediaPickerControllerDelegate, AVAudioP
     
     // MARK: - MEDIA PICKER DELEGATE -> Called when you built your playlist
     func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
-        mediaPickerDone = true
-        songTitleLabel.text = ""
-        songTitleLabel.alpha = 0
-        
-        createSpinnerView()
-        
-        musicPlayer!.shuffleMode = MPMusicShuffleMode.off
-        
-        //clean out previous playlist array
-        myArray.removeAll()
-        //save empty playlist to start new Playlist
-        if mediaItemCollection.items.count > 0 {
-            musicPlayer!.setQueue(with: mediaItemCollection)
-            // Empty the arrays of songs
-            songsCollection = nil
-            musicPlayer!.shuffleMode = MPMusicShuffleMode.off
-            songsCollection = mediaItemCollection as MPMediaItemCollection
-            songs = songsCollection!.items as NSArray
-            
-            //so playlist view will fill tableview
-            songsSelected = true
-            defaults.set(songsSelected, forKey: "songsSelected")
-            
-            defaults.set(mediaItemCollection.items.count, forKey: "mediaItems")
-            
-            dismiss(animated: true, completion: nil)
-            timeRemaining2.alpha = 0
-            timeRemainingLabel!.alpha = 0
-            loadingDone = true
-            perform(#selector(setupPlayer), with: nil, afterDelay: 0.1)
-        }
+        MediaItemManager.shared.saveMediaItemCollection(mediaItemCollection) // Save for future use
+        setupSavedMediaItemCollection(with: mediaItemCollection)
     }
     
-    // MARK: - SPINNER ANIMATION
-    func createSpinnerView() {
-        
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.startAnimating()
-        view.addSubview(spinner)
-        
-        spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
-        // wait two seconds to simulate loading
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            // then remove the spinner view controller
-            spinner.removeFromSuperview()
-            self.mediaPickerDone = false
-        }
-    }
+   
     
     func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
         dismiss(animated: true, completion: nil)

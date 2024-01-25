@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		018061E32B611AC800695854 /* VolumeChangeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018061E22B611AC800695854 /* VolumeChangeObserver.swift */; };
 		018061E62B611AF500695854 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018061E52B611AF500695854 /* Extensions.swift */; };
+		01AA4DA62B625585009F64BD /* MediaItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AA4DA52B625585009F64BD /* MediaItemManager.swift */; };
 		01AB1B132B61320B00F3C2E5 /* CenteredCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AB1B122B61320B00F3C2E5 /* CenteredCollectionViewFlowLayout.swift */; };
 		01AB1B162B61326E00F3C2E5 /* MediaCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AB1B152B61326E00F3C2E5 /* MediaCollectionCell.swift */; };
 		0CB354C4CBE904F7F2A9AA63 /* Pods_Sonora.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA2B5D6514592AB400B8E94 /* Pods_Sonora.framework */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		018061E22B611AC800695854 /* VolumeChangeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeChangeObserver.swift; sourceTree = "<group>"; };
 		018061E52B611AF500695854 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		01AA4DA52B625585009F64BD /* MediaItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItemManager.swift; sourceTree = "<group>"; };
 		01AB1B122B61320B00F3C2E5 /* CenteredCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteredCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		01AB1B152B61326E00F3C2E5 /* MediaCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionCell.swift; sourceTree = "<group>"; };
 		1F338DA22A7896730030FA2D /* digital7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = digital7.ttf; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		01AA4DA42B62557B009F64BD /* MediaItemManager */ = {
+			isa = PBXGroup;
+			children = (
+				01AA4DA52B625585009F64BD /* MediaItemManager.swift */,
+			);
+			name = MediaItemManager;
+			sourceTree = "<group>";
+		};
 		01AB1B0C2B6121CA00F3C2E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +150,7 @@
 		01AB1B102B6131F900F3C2E5 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				01AA4DA42B62557B009F64BD /* MediaItemManager */,
 				01AB1B112B61320300F3C2E5 /* CenteredCollectionView */,
 			);
 			name = Lib;
@@ -392,6 +403,7 @@
 				1F9FE3D624F73D7F005E1B24 /* SettingsViewController.swift in Sources */,
 				018061E62B611AF500695854 /* Extensions.swift in Sources */,
 				1FF548252564818A000F0FC8 /* InstructionViewController.swift in Sources */,
+				01AA4DA62B625585009F64BD /* MediaItemManager.swift in Sources */,
 				01AB1B162B61326E00F3C2E5 /* MediaCollectionCell.swift in Sources */,
 				1F6F23FA2A3BFD8D004D44F6 /* CommonAlertVC.swift in Sources */,
 				01AB1B132B61320B00F3C2E5 /* CenteredCollectionViewFlowLayout.swift in Sources */,
